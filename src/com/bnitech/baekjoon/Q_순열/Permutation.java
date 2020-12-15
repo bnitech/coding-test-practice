@@ -1,4 +1,4 @@
-package Q_순열;
+package com.bnitech.baekjoon.Q_순열;
 
 public class Permutation {
     public static void main(String[] ar){

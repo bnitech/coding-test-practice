@@ -1,4 +1,4 @@
-package acmicpc_3190;
+package com.bnitech.baekjoon.samsung.acmicpc_3190;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

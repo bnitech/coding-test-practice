@@ -1,4 +1,4 @@
-package Q_Á¶ÇÕ;
+package com.bnitech.baekjoon.Q_ì¡°í•©;
 
 public class Combination {
     public static void main(String[] ar){

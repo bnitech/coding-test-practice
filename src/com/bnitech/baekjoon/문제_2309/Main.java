@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_2309;
 
-����_2309;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;

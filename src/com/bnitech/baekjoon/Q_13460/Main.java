@@ -66,7 +66,7 @@ public class Main {
                     queue_R.offer(new Point(next_point.Y-dy[i],next_point.X-dx[i],next_point.len,next_point.finish));
                 }
 
-                if (arr_NM[poll_point.Y][poll_point.X] ==) ;
+//                if (arr_NM[poll_point.Y][poll_point.X] ==) ;
                 if (arr_NM[poll_point.Y][poll_point.X] == -1) ;
             }
         }

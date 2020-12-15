@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_2743;
 
-����_2743;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

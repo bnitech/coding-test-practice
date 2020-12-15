@@ -1,4 +1,4 @@
-package Q_해시_1;
+package com.bnitech.programmers.Q_해시_1;
 
 import java.util.HashMap;
 

@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_10699;
 
-����_10699;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

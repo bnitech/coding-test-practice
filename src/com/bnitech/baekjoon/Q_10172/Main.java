@@ -1,4 +1,4 @@
-package Q_10172;
+package com.bnitech.baekjoon.Q_10172;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

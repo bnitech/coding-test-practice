@@ -1,4 +1,4 @@
-package Q_13911;
+package com.bnitech.baekjoon.samsung.Q_13911;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

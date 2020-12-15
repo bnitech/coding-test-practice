@@ -1,4 +1,4 @@
-package Q_1003;
+package com.bnitech.baekjoon.Q_1003;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

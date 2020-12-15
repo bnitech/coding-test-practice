@@ -1,4 +1,4 @@
-package 조합후순열;
+package com.bnitech.baekjoon.조합후순열;
 
 public class Permutation2 {
     public static void main(String[] ar){

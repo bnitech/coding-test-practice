@@ -1,279 +1,278 @@
-package CCTV°¨½Ã_DFSÁ¶ÇÕ¼ö¿­ÀÀ¿ë;
+package com.bnitech.baekjoon.CCTVê°ì‹œ_DFSì¡°í•©ìˆ˜ì—´ì‘ìš©;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws Exception {
-		Main main = new Main();
-		System.out.println(main.solution());
+    public static void main(String[] args) throws Exception {
+        Main main = new Main();
+        System.out.println(main.solution());
 
-	}
+    }
 
-	static final int DX = 0;
-	static final int DY = 1;
-	static int numN, numM, minCntArea = Integer.MAX_VALUE;
-	static HashMap<String, int[]> dirHM;
+    static final int DX = 0;
+    static final int DY = 1;
+    static int numN, numM, minCntArea = Integer.MAX_VALUE;
+    static HashMap<String, int[]> dirHM;
 
-	public int solution() throws Exception {
+    public int solution() throws Exception {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-		numN = Integer.parseInt(st.nextToken());
-		numM = Integer.parseInt(st.nextToken());
+        numN = Integer.parseInt(st.nextToken());
+        numM = Integer.parseInt(st.nextToken());
 
-		// map ÃÊ±âÈ­, CCTV À§Ä¡ ÀúÀå
-		int[][] mapArr = new int[numN][numM];
+        // map ï¿½Ê±ï¿½È­, CCTV ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+        int[][] mapArr = new int[numN][numM];
 
-		ArrayList<Point> cctvList = new ArrayList<>();
+        ArrayList<Point> cctvList = new ArrayList<>();
 
-		for (int i = 0; i < numN; i++) {
-			st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < numM; j++) {
-				int num = Integer.parseInt(st.nextToken());
-				mapArr[i][j] = num;
-				if (num > 0 && num < 6) {
-					cctvList.add(new Point(j, i, num));
-				}
-			}
-		}
+        for (int i = 0; i < numN; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < numM; j++) {
+                int num = Integer.parseInt(st.nextToken());
+                mapArr[i][j] = num;
+                if (num > 0 && num < 6) {
+                    cctvList.add(new Point(j, i, num));
+                }
+            }
+        }
 
-		// ¹æÇâ ÃÊ±âÈ­
-		// ¿ì ÇÏ ÁÂ »ó
-		int[] dx = { 1, 0, -1, 0 };
-		int[] dy = { 0, 1, 0, -1 };
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+        // ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+        int[] dx = {1, 0, -1, 0};
+        int[] dy = {0, 1, 0, -1};
 
-		dirHM = new HashMap<>();
-		int[] tmp = new int[2];
-		tmp[DX] = dx[0];
-		tmp[DY] = dy[0];
-		dirHM.put("¿ì", tmp);
-		tmp = new int[2];
-		tmp[DX] = dx[1];
-		tmp[DY] = dy[1];
-		dirHM.put("ÇÏ", tmp);
-		tmp = new int[2];
-		tmp[DX] = dx[2];
-		tmp[DY] = dy[2];
-		dirHM.put("ÁÂ", tmp);
-		tmp = new int[2];
-		tmp[DX] = dx[3];
-		tmp[DY] = dy[3];
-		dirHM.put("»ó", tmp);
+        dirHM = new HashMap<>();
+        int[] tmp = new int[2];
+        tmp[DX] = dx[0];
+        tmp[DY] = dy[0];
+        dirHM.put("ï¿½ï¿½", tmp);
+        tmp = new int[2];
+        tmp[DX] = dx[1];
+        tmp[DY] = dy[1];
+        dirHM.put("ï¿½ï¿½", tmp);
+        tmp = new int[2];
+        tmp[DX] = dx[2];
+        tmp[DY] = dy[2];
+        dirHM.put("ï¿½ï¿½", tmp);
+        tmp = new int[2];
+        tmp[DX] = dx[3];
+        tmp[DY] = dy[3];
+        dirHM.put("ï¿½ï¿½", tmp);
 
-		// CCTV ¹æÇâ °æ¿ìÀÇ ¼ö(Á¶ÇÕ) ±¸ÇÏ±â
-		int[][] tmpMapArr = new int[numN][numM];
-		for (int i = 0; i < numN; i++) {
-			tmpMapArr[i] = mapArr[i].clone();
-		}
+        // CCTV ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ï±ï¿½
+        int[][] tmpMapArr = new int[numN][numM];
+        for (int i = 0; i < numN; i++) {
+            tmpMapArr[i] = mapArr[i].clone();
+        }
 
-		boolean[][] checkedCctv = new boolean[cctvList.size()][4];
-		combination_dfs(0, cctvList, tmpMapArr, checkedCctv);
+        boolean[][] checkedCctv = new boolean[cctvList.size()][4];
+        combination_dfs(0, cctvList, tmpMapArr, checkedCctv);
 
-		return minCntArea;
-	}
+        return minCntArea;
+    }
 
-	public void combination_dfs(int idx, ArrayList<Point> cctvList, int[][] tmpMapArr, boolean[][] checkedCctv) {
-		if (cctvList.size() == idx) {
-			int cntArea = countArea(tmpMapArr);
-			if (minCntArea > cntArea) {
-				minCntArea = cntArea;
-			}
+    public void combination_dfs(int idx, ArrayList<Point> cctvList, int[][] tmpMapArr, boolean[][] checkedCctv) {
+        if (cctvList.size() == idx) {
+            int cntArea = countArea(tmpMapArr);
+            if (minCntArea > cntArea) {
+                minCntArea = cntArea;
+            }
 
-			return;
-		}
+            return;
+        }
 
-		Point curPoint = cctvList.get(idx);
-		int[][] nextMapArr = new int[numN][numM];
-		for (int j = 0; j < numN; j++) {
-			nextMapArr[j] = tmpMapArr[j].clone();
-		}
-		
-		switch (curPoint.type) {
-		case 1:
-			for (int i = 0; i < 4; i++) {
-				checkedCctv[idx][i] = true;
-				nextMapArr = setArea(nextMapArr, curPoint, i);
-				combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
-				// Çö À§Ä¡¿¡¼­ »õ·Î ½ÃÀÛ
-				for (int j = 0; j < numN; j++) {
-					nextMapArr[j] = tmpMapArr[j].clone();
-				}
-			}
-			break;
-		case 2:
-			for (int i = 0; i < 2; i++) {
-				checkedCctv[idx][i] = true;
-				nextMapArr = setArea(nextMapArr, curPoint, i);
-				combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
-				for (int j = 0; j < numN; j++) {
-					nextMapArr[j] = tmpMapArr[j].clone();
-				}
-			}
-			break;
-		case 3:
-			for (int i = 0; i < 4; i++) {
-				checkedCctv[idx][i] = true;
-				nextMapArr = setArea(nextMapArr, curPoint, i);
-				combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
-				for (int j = 0; j < numN; j++) {
-					nextMapArr[j] = tmpMapArr[j].clone();
-				}
-			}
-			break;
-		case 4:
-			for (int i = 0; i < 4; i++) {
-				checkedCctv[idx][i] = true;
-				nextMapArr = setArea(nextMapArr, curPoint, i);
-				combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
-				for (int j = 0; j < numN; j++) {
-					nextMapArr[j] = tmpMapArr[j].clone();
-				}
-			}
-			break;
-		case 5:
-			checkedCctv[idx][0] = true;
-			nextMapArr = setArea(nextMapArr, curPoint, 0);
-			combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
-			for (int j = 0; j < numN; j++) {
-				nextMapArr[j] = tmpMapArr[j].clone();
-			}
-			break;
-		default:
-			break;
-		}
-	}
+        Point curPoint = cctvList.get(idx);
+        int[][] nextMapArr = new int[numN][numM];
+        for (int j = 0; j < numN; j++) {
+            nextMapArr[j] = tmpMapArr[j].clone();
+        }
 
-	public int countArea(int[][] tmpMapArr) {
-		int cntArea = 0;
-		for (int i = 0; i < numN; i++) {
-			for (int j = 0; j < numM; j++) {
-				if (tmpMapArr[i][j] == 0) {
-					cntArea++;
-				}
-			}
-		}
-		return cntArea;
-	}
+        switch (curPoint.type) {
+            case 1:
+                for (int i = 0; i < 4; i++) {
+                    checkedCctv[idx][i] = true;
+                    nextMapArr = setArea(nextMapArr, curPoint, i);
+                    combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
+                    // ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                    for (int j = 0; j < numN; j++) {
+                        nextMapArr[j] = tmpMapArr[j].clone();
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < 2; i++) {
+                    checkedCctv[idx][i] = true;
+                    nextMapArr = setArea(nextMapArr, curPoint, i);
+                    combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
+                    for (int j = 0; j < numN; j++) {
+                        nextMapArr[j] = tmpMapArr[j].clone();
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < 4; i++) {
+                    checkedCctv[idx][i] = true;
+                    nextMapArr = setArea(nextMapArr, curPoint, i);
+                    combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
+                    for (int j = 0; j < numN; j++) {
+                        nextMapArr[j] = tmpMapArr[j].clone();
+                    }
+                }
+                break;
+            case 4:
+                for (int i = 0; i < 4; i++) {
+                    checkedCctv[idx][i] = true;
+                    nextMapArr = setArea(nextMapArr, curPoint, i);
+                    combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
+                    for (int j = 0; j < numN; j++) {
+                        nextMapArr[j] = tmpMapArr[j].clone();
+                    }
+                }
+                break;
+            case 5:
+                checkedCctv[idx][0] = true;
+                nextMapArr = setArea(nextMapArr, curPoint, 0);
+                combination_dfs(idx + 1, cctvList, nextMapArr, checkedCctv);
+                for (int j = 0; j < numN; j++) {
+                    nextMapArr[j] = tmpMapArr[j].clone();
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
-	public int[][] setArea(int[][] tmpMapArr, Point curPoint, int dir) {
-		// ÀÌµ¿°¡´ÉÇÑ ¹æÇâÀ¸·Î ÈçÀû ³²±â¸ç ÀÌµ¿
-		ArrayList<int[]> curDirList = setDirList(curPoint.type, dir);
-		tmpMapArr[curPoint.Y][curPoint.X] = curPoint.type;
-		for (int[] curDir : curDirList) {
+    public int countArea(int[][] tmpMapArr) {
+        int cntArea = 0;
+        for (int i = 0; i < numN; i++) {
+            for (int j = 0; j < numM; j++) {
+                if (tmpMapArr[i][j] == 0) {
+                    cntArea++;
+                }
+            }
+        }
+        return cntArea;
+    }
 
-			int nextX = curPoint.X + curDir[DX];
-			int nextY = curPoint.Y + curDir[DY];
-			while (nextY >= 0 && nextY < numN && nextX >= 0 && nextX < numM) {
+    public int[][] setArea(int[][] tmpMapArr, Point curPoint, int dir) {
+        // ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+        ArrayList<int[]> curDirList = setDirList(curPoint.type, dir);
+        tmpMapArr[curPoint.Y][curPoint.X] = curPoint.type;
+        for (int[] curDir : curDirList) {
 
-				if (tmpMapArr[nextY][nextX] != 6) {
-					tmpMapArr[nextY][nextX] = curPoint.type;
-				} else {
-					break;
-				}
-				nextX += curDir[DX];
-				nextY += curDir[DY];
+            int nextX = curPoint.X + curDir[DX];
+            int nextY = curPoint.Y + curDir[DY];
+            while (nextY >= 0 && nextY < numN && nextX >= 0 && nextX < numM) {
+
+                if (tmpMapArr[nextY][nextX] != 6) {
+                    tmpMapArr[nextY][nextX] = curPoint.type;
+                } else {
+                    break;
+                }
+                nextX += curDir[DX];
+                nextY += curDir[DY];
 
 //				System.out.println("---------------" + curDir[0] + "/" + curDir[1] + "---------------------");
 //				for (int i = 0; i < numN; i++) {
 //					System.out.println(Arrays.toString(tmpMapArr[i]));
 //				}
-			}
-		}
+            }
+        }
 
-		return tmpMapArr;
-	}
+        return tmpMapArr;
+    }
 
-	public ArrayList<int[]> setDirList(int type, int dir) {
-		ArrayList<int[]> dirList = new ArrayList<>();
-		switch (type) {
-		// 4°¡Áö : ¿ì, ÇÏ, ÁÂ, »ó
-		case 1:
-			if (dir == 0) {
-				dirList.add(dirHM.get("¿ì"));
-			} else if (dir == 1) {
-				dirList.add(dirHM.get("ÇÏ"));
-			} else if (dir == 2) {
-				dirList.add(dirHM.get("ÁÂ"));
-			} else if (dir == 3) {
-				dirList.add(dirHM.get("»ó"));
-			}
-			break;
-		// 2°¡Áö : »ó ÇÏ, ÁÂ ¿ì
-		case 2:
-			if (dir == 0) {
-				dirList.add(dirHM.get("»ó"));
-				dirList.add(dirHM.get("ÇÏ"));
-			} else if (dir == 1) {
-				dirList.add(dirHM.get("ÁÂ"));
-				dirList.add(dirHM.get("¿ì"));
-			}
-			break;
-		// 4°¡Áö : »ó ¿ì, ¿ì ÇÏ, ÇÏ ÁÂ, ÁÂ »ó
-		case 3:
-			if (dir == 0) {
-				dirList.add(dirHM.get("»ó"));
-				dirList.add(dirHM.get("¿ì"));
-			} else if (dir == 1) {
-				dirList.add(dirHM.get("¿ì"));
-				dirList.add(dirHM.get("ÇÏ"));
-			} else if (dir == 2) {
-				dirList.add(dirHM.get("ÇÏ"));
-				dirList.add(dirHM.get("ÁÂ"));
-			} else if (dir == 3) {
-				dirList.add(dirHM.get("ÁÂ"));
-				dirList.add(dirHM.get("»ó"));
-			}
-			break;
-		// 4°¡Áö : »ó ¿ì ÇÏ, ¿ì ÇÏ ÁÂ , ÇÏ ÁÂ »ó, ÁÂ »ó ¿ì
-		case 4:
-			if (dir == 0) {
-				dirList.add(dirHM.get("»ó"));
-				dirList.add(dirHM.get("¿ì"));
-				dirList.add(dirHM.get("ÇÏ"));
-			} else if (dir == 1) {
-				dirList.add(dirHM.get("¿ì"));
-				dirList.add(dirHM.get("ÇÏ"));
-				dirList.add(dirHM.get("ÁÂ"));
-			} else if (dir == 2) {
-				dirList.add(dirHM.get("ÇÏ"));
-				dirList.add(dirHM.get("ÁÂ"));
-				dirList.add(dirHM.get("»ó"));
-			} else if (dir == 3) {
-				dirList.add(dirHM.get("ÁÂ"));
-				dirList.add(dirHM.get("»ó"));
-				dirList.add(dirHM.get("¿ì"));
-			}
-			break;
-		// 4°¡Áö : »ó ¿ì ÇÏ ÁÂ
-		case 5:
-			if (dir == 0) {
-				dirList.add(dirHM.get("¿ì"));
-				dirList.add(dirHM.get("ÇÏ"));
-				dirList.add(dirHM.get("ÁÂ"));
-				dirList.add(dirHM.get("»ó"));
-			}
-			break;
+    public ArrayList<int[]> setDirList(int type, int dir) {
+        ArrayList<int[]> dirList = new ArrayList<>();
+        switch (type) {
+            // 4ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½
+            case 1:
+                if (dir == 0) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 1) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 2) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 3) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                }
+                break;
+            // 2ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½
+            case 2:
+                if (dir == 0) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 1) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                }
+                break;
+            // 4ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½
+            case 3:
+                if (dir == 0) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 1) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 2) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 3) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                }
+                break;
+            // 4ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ , ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+            case 4:
+                if (dir == 0) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 1) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 2) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                } else if (dir == 3) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                }
+                break;
+            // 4ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+            case 5:
+                if (dir == 0) {
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                    dirList.add(dirHM.get("ï¿½ï¿½"));
+                }
+                break;
 
-		default:
-			break;
-		}
+            default:
+                break;
+        }
 
-		return dirList;
-	}
+        return dirList;
+    }
 
-	public class Point {
-		int X, Y, type;
+    public class Point {
+        int X, Y, type;
 
-		public Point(int X, int Y, int type) {
-			this.X = X;
-			this.Y = Y;
-			this.type = type;
-		}
-	}
+        public Point(int X, int Y, int type) {
+            this.X = X;
+            this.Y = Y;
+            this.type = type;
+        }
+    }
 }

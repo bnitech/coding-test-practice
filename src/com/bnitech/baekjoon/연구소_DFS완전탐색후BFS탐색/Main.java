@@ -1,4 +1,4 @@
-package ¿¬±¸¼Ò_DFS¿ÏÀüÅ½»öÈÄBFSÅ½»ö;
+package com.bnitech.baekjoon.ì—°êµ¬ì†Œ_DFSì™„ì „íƒìƒ‰í›„BFSíƒìƒ‰;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -33,7 +33,7 @@ public class Main {
 		mapArr = new int[numN][numM];
 		virusPointList = new ArrayList<>();
 
-		// map ¼¼ÆÃ, ¹ÙÀÌ·¯½º ½ÃÀÛÁöÁ¡ ÀúÀå
+		// map ????, ??????? ???????? ????
 		for (int i = 0; i < numN; i++) {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < numM; j++) {
@@ -68,7 +68,7 @@ public class Main {
 	}
 
 	public void createWall_dfs(int cnt, int[][] tmpMapArr) {
-		// º® 3°³
+		// ?? 3??
 		if (cnt == 3) {
 			virusSpread_bfs(tmpMapArr);
 			// for (int i = 0; i < numN; i++) {
@@ -77,14 +77,14 @@ public class Main {
 			// System.out.println("====================================================");
 			return;
 		}
-		// º®¼¼¿ì±â
+		// ???????
 		for (int i = 0; i < numN; i++) {
 			for (int j = 0; j < numM; j++) {
 				if (tmpMapArr[i][j] == 0) {
 					tmpMapArr[i][j] = 1;
 					createWall_dfs(cnt + 1, tmpMapArr);
 
-					// Å½»ö ¿Ï·á
+					// ??? ???
 					tmpMapArr[i][j] = 0;
 				}
 			}
@@ -103,7 +103,7 @@ public class Main {
 		int[] dx = { 1, 0, -1, 0 };
 		int[] dy = { 0, 1, 0, -1 };
 
-		// ¹ÙÀÌ·¯½º ½ÃÀÛÁöÁ¡ ¹Ş±â
+		// ??????? ???????? ???
 		for (Point point : virusPointList) {
 			queuePoint.offer(point);
 		}

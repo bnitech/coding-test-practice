@@ -1,4 +1,4 @@
-package Q_해시_2;
+package com.bnitech.programmers.Q_해시_2;
 
 public class Solution {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Q_해시_4;
+package com.bnitech.programmers.Q_해시_4;
 
 import java.util.ArrayList;
 import java.util.Arrays;

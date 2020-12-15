@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_1000;
 
-����_1000;
-
 import java.util.Scanner;
 
 public class Main {	

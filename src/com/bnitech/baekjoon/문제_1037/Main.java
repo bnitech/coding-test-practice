@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_1037;
 
-����_1037;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;

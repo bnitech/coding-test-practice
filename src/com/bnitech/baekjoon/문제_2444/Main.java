@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_2444;
 
-����_2444;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;

@@ -1,9 +1,9 @@
 /*
-»ï¼º SW ¿ª·® Å×½ºÆ® ±âÃâ ¹®Á¦
-Åé´Ï¹ÙÄû
+ï¿½ï¼º SW ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½
  */
 
-package acmicpc_14891;
+package com.bnitech.baekjoon.samsung.acmicpc_14891;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

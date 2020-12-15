@@ -1,4 +1,4 @@
-package Q_2928;
+package com.bnitech.baekjoon.Q_2928;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -54,7 +54,7 @@ public class Main {
 		
 		for (int i = 0; i < dy; i++) {
 			for (int j = 0; j < dx; j++) {
-				pointList.add(e)
+//				pointList.add(e)
 			}
 		}
 		

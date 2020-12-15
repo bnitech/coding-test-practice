@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_1254;
 
-����_1254;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;

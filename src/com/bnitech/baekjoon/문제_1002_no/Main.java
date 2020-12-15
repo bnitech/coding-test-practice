@@ -1,7 +1,5 @@
 package com.bnitech.baekjoon.문제_1002_no;
 
-����_1002_no;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;

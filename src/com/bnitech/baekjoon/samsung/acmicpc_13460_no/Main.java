@@ -3,7 +3,7 @@
 ±∏ΩΩ ≈ª√‚ 2
  */
 
-package acmicpc_13460_no;
+package com.bnitech.baekjoon.samsung.acmicpc_13460_no;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

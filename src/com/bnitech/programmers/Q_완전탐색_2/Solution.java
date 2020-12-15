@@ -1,4 +1,4 @@
-package Q_¿ÏÀüÅ½»ö_2;
+package com.bnitech.programmers.Q_¿ÏÀüÅ½»ö_2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
