@@ -1,4 +1,4 @@
-package com.bnitech.leetcode.Q1277;
+package com.bnitech.leetcode.Q_1277;
 
 // 1277
 public class Solution1 {

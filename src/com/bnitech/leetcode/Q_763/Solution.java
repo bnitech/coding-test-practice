@@ -1,4 +1,4 @@
-package com.bnitech.leetcode.Q763;
+package com.bnitech.leetcode.Q_763;
 
 import java.util.*;
 

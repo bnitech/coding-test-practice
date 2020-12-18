@@ -1,4 +1,4 @@
-package com.bnitech.leetcode.Q1423;
+package com.bnitech.leetcode.Q_1423;
 
 // 1423. Maximum Points You Can Obtain from Cards
 public class Solution {
