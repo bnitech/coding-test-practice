@@ -1,9 +1,9 @@
 /*
 트리-트리의 지름-트리의 지름
  */
-package com.bnitech.acmicpc.Q_1167;
+package com.bnitech.baekjoon.Q_1167;
 
-import javafx.scene.layout.VBox;
+//import javafx.scene.layout.VBox;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
