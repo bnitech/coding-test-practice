@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+// 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
 public class Solution {
     public static int longestSubarray(final int[] nums, final int limit) {
         int length = nums.length;
