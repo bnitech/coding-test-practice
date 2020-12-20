@@ -18,9 +18,13 @@ public class Solution {
                     list.add(nums[front + i]);
                 }
                 int diff = Collections.max(list) - Collections.min(list);
-                if (diff <= limit && diff >= max[0]) {
-                    max[0] = diff;
-                    max[1] = Math.max(max[1], list.size());
+                if (diff <= limit) {
+                    if (diff == max[0]) {
+                        max[1] = Math.max(max[1], list.size());
+                    } else if (diff > max[0]) {
+                        max[0] = diff;
+                        max[1] = list.size();
+                    }
                 }
             }
         }
