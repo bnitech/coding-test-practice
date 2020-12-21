@@ -1,12 +1,14 @@
 package com.bnitech;
 
-import com.bnitech.leetcode.Q_1176.Solution;
+import com.bnitech.leetcode.Q_238.Solution;
+
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] calories = {6,13,8,7,10,1,12,11};
-        int result = Solution.dietPlanPerformance(calories, 6, 5, 37);
-        System.out.println(result);
+        int[] input = {1, 2, 3, 4};
+        int[] results = Solution.productExceptSelf(input);
+        Arrays.stream(results).forEach(System.out::println);
     }
 }
