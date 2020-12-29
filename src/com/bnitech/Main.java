@@ -1,14 +1,16 @@
 package com.bnitech;
 
-import com.bnitech.leetcode.Q_54.Solution;
+import com.bnitech.leetcode.Q_73.Solution;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-        List<Integer> integerList = Solution.spiralOrder(matrix);
-        integerList.forEach(System.out::print);
+        int[][] matrix = {{0, 1, 2, 0}, {3, 4, 5, 2}, {1, 3, 1, 5}};
+        Solution.setZeroes(matrix);
+        for (int[] ints : matrix) {
+            System.out.println(Arrays.toString(ints));
+        }
     }
 }
