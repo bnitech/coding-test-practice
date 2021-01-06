@@ -1,5 +1,8 @@
 package com.bnitech.leetcode.Q_111;
 
+import com.bnitech.leetcode.Pair;
+import com.bnitech.leetcode.TreeNode;
+
 import java.util.LinkedList;
 
 // 111. Minimum Depth of Binary Tree
@@ -29,43 +32,6 @@ public class Solution {
             }
         }
         return depth;
-    }
-
-    static class Pair<F, R> {
-        F front;
-        R rear;
-
-        public Pair(F front, R rear) {
-            this.front = front;
-            this.rear = rear;
-        }
-
-        public F getFront() {
-            return front;
-        }
-
-        public R getRear() {
-            return rear;
-        }
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }
 
