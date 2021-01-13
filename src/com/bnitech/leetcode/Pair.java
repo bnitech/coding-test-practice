@@ -1,8 +1,8 @@
 package com.bnitech.leetcode;
 
 public class Pair<F, R> {
-    F front;
-    R rear;
+    private F front;
+    private R rear;
 
     public Pair(F front, R rear) {
         this.front = front;

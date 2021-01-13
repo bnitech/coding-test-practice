@@ -1,13 +1,13 @@
 package com.bnitech;
 
-import com.bnitech.leetcode.Q_103.Solution;
+import com.bnitech.leetcode.Q_863.Solution;
 import com.bnitech.leetcode.TreeNode;
 
 import java.util.List;
 
 public class Main {
 
-    public static Integer[] input = {1,2,3,4,null,null,5};
+    public static Integer[] input = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
 
     public static void main(String[] args) {
 
@@ -17,9 +17,8 @@ public class Main {
         tree.forEach(System.out::println);
         System.out.println("============================");
 
-        List<List<Integer>> listList = Solution.zigzagLevelOrder(treeNode);
-        listList.forEach(System.out::println);
-
+        List<Integer> list = Solution.distanceK(treeNode, new TreeNode(5), 2);
+        System.out.println(list);
     }
 
 
