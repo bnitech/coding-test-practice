@@ -1,25 +1,11 @@
 package com.bnitech;
 
-import com.bnitech.leetcode.Q_863.Solution;
-import com.bnitech.leetcode.TreeNode;
-
-import java.util.List;
+import com.bnitech.leetcode.Q_207.Solution;
 
 public class Main {
-
-    public static Integer[] input = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
-
     public static void main(String[] args) {
-
-        TreeNode treeNode = TreeNode.createTreeNode(new TreeNode(), input, 0);
-
-        List<List<String>> tree = com.bnitech.leetcode.Q_655.Solution.printTree(treeNode);
-        tree.forEach(System.out::println);
-        System.out.println("============================");
-
-        List<Integer> list = Solution.distanceK(treeNode, new TreeNode(5), 2);
-        System.out.println(list);
+        int[][] prerequisites = new int[][]{{2, 0}, {3, 2}, {3, 0}, {3, 1}, {4, 1}, {5, 2}, {5, 3}, {5, 4}};
+        boolean result = Solution.canFinish(6, prerequisites);
+        System.out.println(result);
     }
-
-
 }
