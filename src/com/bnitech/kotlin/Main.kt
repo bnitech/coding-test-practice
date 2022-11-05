@@ -1,8 +1,8 @@
 package com.bnitech.kotlin
 
-import com.bnitech.kotlin.programmers.햄버거만들기
+import com.bnitech.kotlin.programmers.빛의경로사이클
 
 fun main() {
-    val result = 햄버거만들기(intArrayOf(2, 1, 1, 2, 3, 1, 2, 3, 1))
-    println(result)
+    val result = 빛의경로사이클(arrayOf("SL","LR"))
+    result.forEach { i: Int ->  print("${i}, ") }
 }
