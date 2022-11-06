@@ -1,1 +1,1 @@
-## Algorithm Java
+## Coding Test Practice
