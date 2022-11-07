@@ -1,9 +1,8 @@
 package com.bnitech.kotlin
 
-import com.bnitech.kotlin.programmers.푸드파이트대회
+import com.bnitech.kotlin.programmers.옹알이2
 
 fun main() {
-    val result = 푸드파이트대회(intArrayOf(1,3,4,6))
+    val result = 옹알이2(arrayOf("ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"))
     println(result)
-    // test
 }
