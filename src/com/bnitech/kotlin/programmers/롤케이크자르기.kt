@@ -2,21 +2,21 @@ package com.bnitech.kotlin.programmers
 
 fun 롤케이크자르기(topping: IntArray): Int {
     var answer = 0
+    var toppingNums = Array(topping.max() + 1) { 0 }
+    val setA = mutableSetOf<Int>()
+    val setB = topping.toMutableSet()
+
+    topping.forEach { toppingNums[it]++ }
+
     for (knife in topping.indices) {
-        val setA = mutableSetOf<Int>()
-        val setB = mutableSetOf<Int>()
-
-        for (a in 0..knife) {
-            setA.add(topping[a])
-        }
-        for (b in knife + 1 until topping.size) {
-            setB.add(topping[b])
-            if (setA.size < setB.size) {
-                break
-            }
+        val digit = topping[knife]
+        setA.add(digit)
+        toppingNums[digit]--
+        if(toppingNums[digit] <= 0){
+            setB.remove(digit)
         }
 
-        if(setA.size == setB.size){
+        if (setA.size == setB.size) {
             answer++
         }
     }
