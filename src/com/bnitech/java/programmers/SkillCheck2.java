@@ -16,7 +16,7 @@ public class SkillCheck2 {
         mapper.put(3, "4");
         mapper.put(4, "11");
         mapper.put(5, "12");
-        mapper.put(6, "14");
+        mapper.put(6, "14.kt");
         mapper.put(7, "21");
         mapper.put(8, "22");
         mapper.put(9, "24");
