@@ -1,11 +1,8 @@
 package com.bnitech.kotlin
 
-import com.bnitech.kotlin.leetcode.longestCommonPrefix
+import com.bnitech.kotlin.leetcode.fizzBuzz
 
 fun main() {
-    val result = longestCommonPrefix(
-//        arrayOf("flower","flow","flight")
-        arrayOf("ab", "a")
-    )
+    val result = fizzBuzz(20)
     println(result)
 }
