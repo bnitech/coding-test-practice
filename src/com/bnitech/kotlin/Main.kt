@@ -1,8 +1,7 @@
 package com.bnitech.kotlin
 
-import com.bnitech.kotlin.baekjoon.나머지
-import com.bnitech.kotlin.baekjoon.피보나치_수_2
+import com.bnitech.kotlin.baekjoon.곱셈
 
 fun main() {
-    println(나머지());
+    println(곱셈());
 }
